@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1648487760 source:c:\users\usuario\desktop\santi no borrar\facultad\arquitectura de computadoras\maquina virtual\traductor\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	"parser.h"
+
+1648487764 c:\users\usuario\desktop\santi no borrar\facultad\arquitectura de computadoras\maquina virtual\traductor\parser.h
+
+1648568232 source:c:\users\usuario\desktop\santi no borrar\facultad\arquitectura de computadoras\maquina virtual\traductor\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<math.h>
+	"parser.h"
+
+1648487760 source:c:\users\usuario\documents\github\tp-arquitectura\maquina virtual\traductor\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	"parser.h"
+
+1648487764 c:\users\usuario\documents\github\tp-arquitectura\maquina virtual\traductor\parser.h
+
+1648841685 source:c:\users\usuario\documents\github\tp-arquitectura\maquina virtual\traductor\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"parser.h"
+
+1649277423 source:c:\users\santi\documents\github\tp-arquitectura\maquina virtual\traductor\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<math.h>
+	"parser.h"
+
+1648845874 c:\users\santi\documents\github\tp-arquitectura\maquina virtual\traductor\parser.h
+
+1648845872 source:c:\users\santi\documents\github\tp-arquitectura\maquina virtual\traductor\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	"parser.h"
+
