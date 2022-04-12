@@ -48,3 +48,12 @@
 	<unistd.h>
 	"parser.h"
 
+1648845872 source:c:\users\santi\documents\github\maquina_virtual_adc\traductor\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<unistd.h>
+	"parser.h"
+
+1648845874 c:\users\santi\documents\github\maquina_virtual_adc\traductor\parser.h
+

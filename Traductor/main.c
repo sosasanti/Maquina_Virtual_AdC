@@ -323,14 +323,14 @@ void trABin(int cantOp,int codOp,int tipoOpA,int tipoOpB,int opA,int opB,int *in
         *instBin = codOp << 20;
     else if (cantOp == 1) {
         *instBin = (codOp << 24) | ((tipoOpA << 22) & 0x00C00000) | (opA & 0x0000FFFF);
-        //if ((opA&0x0000FFFF) != opA)
-            //printf("WARNING: Truncado de operando. 16 bits insuficientes para guardar el valor del operando.\n");
+        if (opA>>16)
+            printf("WARNING: Truncado de operando. 16 bits insuficientes para guardar el valor del operando.\n");
     } else {
         *instBin = (codOp << 28) | ((tipoOpA << 26) & 0x0C000000) | ((tipoOpB << 24) & 0x03000000) | ((opA << 12) & 0x00FFF000) | (opB & 0x00000FFF);
-        //if ((opB&0x00000FFF) != opB)
-            //printf("WARNING: Truncado de operando. 12 bits insuficientes para guardar el valor del operando B.\n");
-        //if ((opA&0x00FFF000) != opA)
-            //printf("WARNING: Truncado de operando. 12 bits insuficientes para guardar el valor del operando A.\n");
+        if (opB>>12)
+            printf("WARNING: Truncado de operando. 12 bits insuficientes para guardar el valor del operando B.\n");
+        if (opA>>12)
+            printf("WARNING: Truncado de operando. 12 bits insuficientes para guardar el valor del operando A.\n");
     }
 }
 
