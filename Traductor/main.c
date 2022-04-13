@@ -197,12 +197,12 @@ void procesa(char **parsed,TReg tablaMnem[],int Ntabla,TReg rotulos[],int *NRot,
 void wrHeader(int errorCompilacion,FILE *archBin,int nInst) {
     int cero = 0;
     if (!errorCompilacion) {                       // HEADER
-        fwrite("MV-1",sizeof("MV-1"),1,archBin);    // 4 chars fijos
+        fwrite("MV-1",4,1,archBin);    // 4 chars fijos
         fwrite(&nInst,4,1,archBin); // Tamaño del codigo (en cantidad de instrucciones)
         fwrite(&cero,4,1,archBin);  // 3 lineas reservadas con 0s
         fwrite(&cero,4,1,archBin);
         fwrite(&cero,4,1,archBin);
-        fwrite("V.22",sizeof("V.22"),1,archBin);    // 4 chars fijos
+        fwrite("V.22",4,1,archBin);    // 4 chars fijos
     }
 }
 
