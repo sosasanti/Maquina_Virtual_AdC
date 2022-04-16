@@ -22,6 +22,7 @@ void decodifica(char **parsed,int nInst, TReg tablaMnem[],TReg rotulos[],int *ca
 void decRegGral(char codReg[],int *operando);
 void trABin(int cantOp,int codOp,int tipoOpA,int tipoOpB,int opA,int opB,int *instBin);
 void wrParsedIns(char **parsed,int nInst,int errores[],int codOp,int instBin);
+void preparaParaEscritura(int *instBin);
 void codUpper(char *cod,char *codOp);
 int anyToInt(char *s, char **out );
 
@@ -61,8 +62,10 @@ int main(int argc, char *argv[]) {
                 printf("ERROR: Mnemonico %s inexistente o mal escrito\n",parsed[1]);
             if (outputOn)
                 wrParsedIns(parsed,nInst,errores,codOp,instBin);   // Imprime
-            if (!errorCompilacion)
-                    fwrite(&instBin,4,1,archBin);      // Escribe arch binario (si hubo error no)
+            if (!errorCompilacion) {
+                preparaParaEscritura(&instBin);// Pasa de littleEndian a bigEndian
+                fwrite(&instBin,4,1,archBin);      // Escribe arch binario (si hubo error no)
+            }
             nInst++;
         }
         freeline(parsed);
@@ -197,12 +200,13 @@ void procesa(char **parsed,TReg tablaMnem[],int Ntabla,TReg rotulos[],int *NRot,
 void wrHeader(int errorCompilacion,FILE *archBin,int nInst) {
     int cero = 0;
     if (!errorCompilacion) {                       // HEADER
-        fwrite("1-VM",4,1,archBin);    // 4 chars fijos
+        fwrite("MV-1",4,1,archBin);    // 4 chars fijos
+        preparaParaEscritura(&nInst);
         fwrite(&nInst,4,1,archBin); // Tamaño del codigo (en cantidad de instrucciones)
         fwrite(&cero,4,1,archBin);  // 3 lineas reservadas con 0s
         fwrite(&cero,4,1,archBin);
         fwrite(&cero,4,1,archBin);
-        fwrite("22.V",4,1,archBin);    // 4 chars fijos
+        fwrite("V.22",4,1,archBin);    // 4 chars fijos
     }
 }
 
@@ -384,4 +388,13 @@ void wrParsedIns(char **parsed,int nInst,int errores[],int codOp,int instBin) {
     if (parsed[4])
         printf("\t; %s",parsed[4]);
     printf("\n");
+}
+
+void preparaParaEscritura(int *instBin) {
+    unsigned int b0,b1,b2,b3;
+    b0 = ((*instBin) & 0x000000FF) <<24;
+    b1 = ((*instBin) & 0x0000FF00) <<8;
+    b2 = ((*instBin) & 0x00FF0000) >>8;
+    b3 = ((*instBin) & 0xFF000000) >>24;
+    *instBin = b0 | b1 | b2 | b3;
 }

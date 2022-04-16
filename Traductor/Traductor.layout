@@ -9,19 +9,20 @@
 	</File>
 	<File name="main.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7692" topLine="80" />
+			<Cursor1 position="7612" topLine="93" />
 		</Cursor>
 		<Folding>
-			<Collapse line="81" />
-			<Collapse line="96" />
-			<Collapse line="153" />
-			<Collapse line="159" />
-			<Collapse line="172" />
-			<Collapse line="208" />
-			<Collapse line="307" />
-			<Collapse line="319" />
-			<Collapse line="336" />
-			<Collapse line="347" />
+			<Collapse line="84" />
+			<Collapse line="99" />
+			<Collapse line="156" />
+			<Collapse line="162" />
+			<Collapse line="175" />
+			<Collapse line="212" />
+			<Collapse line="311" />
+			<Collapse line="323" />
+			<Collapse line="340" />
+			<Collapse line="351" />
+			<Collapse line="360" />
 		</Folding>
 	</File>
 </CodeBlocks_layout_file>
